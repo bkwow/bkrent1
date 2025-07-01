@@ -1,0 +1,439 @@
+/* ===============================================*/
+/*    VARIABLES Y ESTILOS GENERALES               */
+/* ===============================================*/
+:root {
+    /* Colores primarios */
+    --primary-violet: #6c5ffc; /* Violeta del login */
+    --primary-color: #0d6efd;  /* Azul principal del dashboard */
+
+    /* Colores del Layout */
+    --sidebar-bg: #ffffff;
+    --content-bg: #f0f2f5;
+    --border-color: #dee2e6;
+
+    /* Dimensiones */
+    --sidebar-width: 260px;
+}
+
+body {
+    background-color: var(--content-bg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+
+/* ===============================================*/
+/*    ESTILOS PÁGINA DE LOGIN                     */
+/* ===============================================*/
+.login-page {
+    background-color: var(--primary-violet);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.login-card {
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.login-logo-section {
+    background-color: #f8f9fa; /* Un poco de color para separar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.login-logo-section img {
+    max-width: 100%;
+    height: auto;
+}
+
+.login-form-section {
+    padding: 3rem;
+}
+
+.login-form-section .highlight {
+    color: var(--primary-violet);
+    font-weight: 500;
+}
+
+.login-form-section .form-control {
+    border-left: 0;
+    box-shadow: none;
+}
+
+.login-form-section .input-group-text {
+    background-color: #fff;
+    border-right: 0;
+}
+
+.login-form-section .btn-login {
+    background-color: var(--primary-violet);
+    border-color: var(--primary-violet);
+    font-weight: 500;
+    padding: 0.75rem;
+}
+
+.login-form-section .btn-login:hover {
+    background-color: #584cda;
+    border-color: #584cda;
+}
+
+@media (max-width: 767.98px) {
+    .login-logo-section {
+        display: none;
+    }
+    .login-form-section {
+        padding: 2rem;
+    }
+}
+
+/* ===============================================*/
+/*    ESTILOS LAYOUT PRINCIPAL (DASHBOARD)        */
+/* ===============================================*/
+.top-header {
+    height: 60px;
+    background-color: #fff;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1039;
+}
+
+#layoutSidenav {
+    display: flex;
+    height: calc(100vh - 60px);
+    position: relative;
+}
+
+#layoutSidenav_content_wrapper {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    flex-shrink: 0;
+    transition: margin-left 0.15s ease-in-out;
+    overflow-y: auto;
+}
+
+#layoutSidenav_content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto; /* Scroll independiente para el contenido */
+}
+
+main.page-content {
+    flex-grow: 1; /* El contenido principal crece para ocupar el espacio */
+}
+
+/* --- Comportamiento del Toggle del Sidebar --- */
+body.sidebar-toggled #sidebar {
+    margin-left: calc(-1 * var(--sidebar-width));
+}
+
+@media (max-width: 991.98px) {
+    #sidebar {
+        position: fixed;
+        height: calc(100vh - 60px);
+        top: 60px;
+        z-index: 1038;
+        margin-left: calc(-1 * var(--sidebar-width)); /* Oculto por defecto en móvil */
+    }
+    body.sidebar-toggled #sidebar {
+        margin-left: 0; /* Se muestra al hacer toggle */
+    }
+}
+
+/* ===============================================*/
+/*    ESTILOS SIDEBAR (MENÚ LATERAL)              */
+/* ===============================================*/
+.sidebar-heading {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+#sidebar .nav-link {
+    color: #333;
+    padding: 0.8rem 1.25rem;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    border-left: 4px solid transparent;
+}
+
+#sidebar .nav-link:hover {
+    background-color: #e9ecef;
+}
+
+#sidebar .nav-link.active {
+    color: var(--primary-color);
+    font-weight: 500;
+    border-left-color: var(--primary-color);
+}
+
+#sidebar .nav-link .menu-icon {
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+}
+
+#sidebar .collapse .nav-link {
+    padding-left: 3.5rem;
+    font-size: 0.9rem;
+    background-color: #f8f9fa; /* Fondo ligeramente diferente para sub-items */
+}
+/* ===============================================*/
+/*    VARIABLES Y ESTILOS GENERALES               */
+/* ===============================================*/
+:root {
+    --primary-violet: #6c5ffc;
+    --primary-color: #0d6efd;
+    --sidebar-bg: #ffffff;
+    --content-bg: #f0f2f5;
+    --border-color: #dee2e6;
+    --sidebar-width: 260px;
+}
+/* ... (Estilos de Login, etc., van aquí) ... */
+
+/* ===============================================*/
+/*    ESTILOS LAYOUT PRINCIPAL (DASHBOARD)        */
+/* ===============================================*/
+.top-header {
+    height: 60px;
+    background-color: #fff;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1040; /* Mayor que el sidebar */
+}
+
+#layoutSidenav {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+#layoutSidenav_content_wrapper {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    flex-shrink: 0;
+    transition: margin-left 0.2s ease-in-out;
+    overflow-y: auto;
+}
+
+/* --- LÓGICA DEL SIDEBAR CORREGIDA --- */
+
+/* Por defecto en ESCRITORIO, el sidebar es visible */
+@media (min-width: 992px) {
+    body.sidebar-toggled #sidebar {
+        margin-left: calc(-1 * var(--sidebar-width));
+    }
+}
+
+/* Por defecto en MÓVIL, el sidebar está oculto */
+@media (max-width: 991.98px) {
+    #sidebar {
+        position: fixed;
+        height: calc(100vh - 60px);
+        top: 60px;
+        z-index: 1039;
+        margin-left: calc(-1 * var(--sidebar-width));
+    }
+    /* Clase específica para mostrar el menú en móvil */
+    body.sidebar-mobile-visible #sidebar {
+        margin-left: 0;
+    }
+}
+/* ===============================================*/
+/*    ESTILOS CONTENIDO Y TARJETAS (DASHBOARD)    */
+/* ===============================================*/
+.page-title {
+    font-size: 1.75rem;
+    font-weight: 300;
+}
+
+.content-tabs .nav-link {
+    margin-right: 5px;
+    font-weight: 500;
+    color: #69707a;
+    border-bottom: 2px solid transparent;
+}
+
+.content-tabs .nav-link.active {
+    color: var(--sidebar-bg); /* Texto blanco */
+    border-color: var(--primary-color);
+    background-color: var(--primary-color); /* Fondo azul */
+}
+ 
+.module-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    height: 100%;
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: var(--primary-color);
+}
+
+.module-card .card-content {
+    flex-grow: 1;
+}
+
+.module-card .icon-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.module-card .icon-title i {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.module-card h4 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.module-card p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.module-card .card-image {
+    margin-left: 1rem;
+    flex-shrink: 0;
+}
+
+.module-card .card-image img {
+    max-width: 100px;
+    height: auto;
+}
+
+/* ===============================================*/
+/*    ESTILOS PARA TABLA DE RESERVAS (DATATABLES) */
+/* ===============================================*/
+/* Estilo para el control de expandir/colapsar (el ícono +) */
+table.dataTable > tbody > tr > td.dtr-control::before {
+   
+    background-color: #31b131; /* Verde para 'abrir' */
+}
+
+ 
+
+/* Estilo para la imagen del vehículo en la tabla */
+.car-thumbnail {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Estilo para la fila de detalles (cuando se expande) */
+.child-row-details {
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--primary-color);
+    padding: 1rem;
+}
+
+/* Estilo para los botones de acción dentro de los detalles */
+.action-buttons .btn-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 2px;
+    color: white;
+}
+
+/* Colores específicos para los botones de acción */
+.btn-success { background-color: #198754 !important; border-color: #198754 !important; }
+.btn-info { background-color: #0dcaf0 !important; border-color: #0dcaf0 !important; }
+.btn-secondary { background-color: #6c757d !important; border-color: #6c757d !important; }
+.btn-primary { background-color: #0d6efd !important; border-color: #0d6efd !important; } /* Ajustado al azul principal */
+.btn-danger { background-color: #dc3545 !important; border-color: #dc3545 !important; }
+
+
+/* ========================================================= */
+/* --- ESTILOS PERSONALIZADOS PARA EL SCROLLBAR           --- */
+/* ========================================================= */
+/* Funciona en Chrome, Edge, Safari */
+#sidebar::-webkit-scrollbar, 
+main.page-content::-webkit-scrollbar,
+#layoutSidenav_content::-webkit-scrollbar {
+  width: 8px;
+}
+
+#sidebar::-webkit-scrollbar-track, 
+main.page-content::-webkit-scrollbar-track,
+#layoutSidenav_content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#sidebar::-webkit-scrollbar-thumb, 
+main.page-content::-webkit-scrollbar-thumb,
+#layoutSidenav_content::-webkit-scrollbar-thumb {
+  background-color: #c5c9d2;
+  border-radius: 10px;
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover, 
+main.page-content::-webkit-scrollbar-thumb:hover,
+#layoutSidenav_content::-webkit-scrollbar-thumb:hover {
+  background-color: #a8aeb7;
+}
+
+/* Para Firefox */
+#sidebar, main.page-content, #layoutSidenav_content {
+  scrollbar-width: thin;
+  scrollbar-color: #c5c9d2 transparent;
+}
+
+/* ===============================================*/
+/*    ESTILOS DEL FOOTER GLOBAL                   */
+/* ===============================================*/
+footer.app-footer {
+    flex-shrink: 0; /* El footer no se encoge */
+    background-color: #f8f9fa;
+    border-top: 1px solid var(--border-color);
+}
